@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:devmentorai;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  jwt:
+    secret: change-this-secret-for-prod-1234567890-abcdef
+    expiration-ms: 86400000
+  openai:
+    base-url: https://api.openai.com/v1/chat/completions
+    model: gpt-3.5-turbo
+
+logging:
+  level:
+    root: INFO
